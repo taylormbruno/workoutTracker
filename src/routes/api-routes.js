@@ -1,35 +1,44 @@
 const router = require('express').Router();
-const Transaction = require('../models/transaction.js');
+const Workout = require('../models/workout.js');
 
 module.exports = function() {
-    // to view last workout
+    // getLastWorkout
     router.get('/api/workouts', (req, res) => {
-        Transaction.find({})
+        Workout.find({})
             .sort({ date: -1})
-            .then( dbTransaction => {
-                res.json(dbTransaction);
+            .then( dbWorkout => {
+                res.json(dbWorkout);
             })
             .catch(err => {
                 res.status(400).json(err);
             });
     });
     
+    // createWorkout
     router.post('/api/workouts', ({ body }, res) => {
+        console.log('------Line 19------');
         console.log(body);
-        let newWorkout;
-        res.json(newWorkout);
+        Workout.create(body)
+            .then(newWorkout => {
+                res.json(newWorkout);
+            })
+            .catch (err => {
+                res.status(400).json(err);
+            });
     });
 
-    // to update workout
+    // addExercise
     router.put('/api/workouts/:id', ({ body }, res) => {
+        console.log('------Line 32------');
         console.log(body);
         // let id = req.params.id;
         let updWorkout;
         res.json(updWorkout);
     });
 
-    // to receive workouts in range
+    // getWorkoutsInRange
     router.get('/api/workouts/range', (req, res) => {
+        console.log('------Line 41------');
         console.log(req.body);
         let range;
         res.json(range);
