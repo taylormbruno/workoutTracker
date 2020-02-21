@@ -21,4 +21,10 @@ module.exports = function(app) {
         // eslint-disable-next-line no-undef
         res.sendFile(path.join(__dirname + '../../../public/exercise.html'));
     });
+
+    // app.get('/exercise?', (req ,res) => {
+    //     // eslint-disable-next-line no-undef
+    //     res.sendFile(path.join(__dirname + '../../../public/exercise.html'));
+    // });
+
 };
