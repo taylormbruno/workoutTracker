@@ -23,6 +23,8 @@ router.put('/api/workouts/:id', (req, res) => {
     // console.log('ID: \n', id);
     // use , { upsert: true } ??
     if (req.params.id === undefined) {
+        console.log(req.body);
+
         Exercise.create(req.body)
             // .then(({ _id }) => Workout.findOneAndUpdate({}, { $push: { notes: _id } }, { new: true }))
             .then(dbUser => {
@@ -34,6 +36,7 @@ router.put('/api/workouts/:id', (req, res) => {
             });
     }
     else {
+        console.log(req.body);
         Exercise.findByIdAndUpdate(req.params.id, {$push: {exercises: req.body }}, {new: true}, function (err, exercise) {
             console.log(exercise);
             res.json(exercise);

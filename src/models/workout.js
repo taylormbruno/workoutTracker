@@ -38,13 +38,14 @@ const workoutSchema = new Schema({
         type: Date,
         default: Date.now
     }
-}, {
-    toObject: {
-        virtuals: true
-    },
-    toJSON: {
-        virtuals: true 
-    }
+// } 
+// {
+//     toObject: {
+//         virtuals: true
+//     },
+//     toJSON: {
+//         virtuals: true 
+//     }
 });
 
 const Workout = mongoose.model('Workout', workoutSchema);
