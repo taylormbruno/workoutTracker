@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 let mongoose = require('mongoose');
 let db = require('../src/models');
 
@@ -139,11 +140,9 @@ db.Exercise.deleteMany({})
     .then(() => db.Exercise.collection.insertMany(workoutSeed))
     .then(data => {
         console.log(data.result.n + ' records inserted!');
-        // eslint-disable-next-line no-undef
         process.exit(0);
     })
     .catch(err => {
         console.error(err);
-        // eslint-disable-next-line no-undef
         process.exit(1);
     });

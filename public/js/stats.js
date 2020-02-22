@@ -1,15 +1,14 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
+
 // get all workout data from back-end
-
-fetch('/api/workouts/range')
-    .then(response => {
-        return response.json();
-    })
-    .then(data => {
-        populateChart(data);
-    });
+fetch('/api/workouts/range').then(response => {
+    return response.json();
+}).then(data => {
+    populateChart(data);
+});
 
 
-// eslint-disable-next-line no-undef
 API.getWorkoutsInRange()
 
 function generatePalette() {
@@ -45,7 +44,6 @@ function populateChart(data) {
     let pie = document.querySelector('#canvas3').getContext('2d');
     let pie2 = document.querySelector('#canvas4').getContext('2d');
 
-    // eslint-disable-next-line no-undef, no-unused-vars
     let lineChart = new Chart(line, {
         type: 'line',
         data: {
@@ -94,7 +92,6 @@ function populateChart(data) {
         }
     });
 
-    // eslint-disable-next-line no-undef, no-unused-vars
     let barChart = new Chart(bar, {
         type: 'bar',
         data: {
@@ -148,7 +145,6 @@ function populateChart(data) {
         }
     });
 
-    // eslint-disable-next-line no-undef, no-unused-vars
     let pieChart = new Chart(pie, {
         type: 'pie',
         data: {
@@ -169,7 +165,6 @@ function populateChart(data) {
         }
     });
 
-    // eslint-disable-next-line no-undef, no-unused-vars
     let donutChart = new Chart(pie2, {
         type: 'doughnut',
         data: {

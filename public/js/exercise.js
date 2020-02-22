@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 const workoutTypeSelect = document.querySelector('#type');
 const cardioForm = document.querySelector('.cardio-form');
 const resistanceForm = document.querySelector('.resistance-form');
@@ -12,7 +14,6 @@ const distanceInput = document.querySelector('#distance');
 const completeButton = document.querySelector('button.complete');
 const addButton = document.querySelector('button.add-another');
 const toast = document.querySelector('#toast');
-// eslint-disable-next-line no-unused-vars
 const newWorkout = document.querySelector('.new-workout')
 
 let workoutType = null;
@@ -22,7 +23,6 @@ async function initExercise() {
     let workout;
 
     if (location.search.split('=')[1] === undefined) {
-        // eslint-disable-next-line no-undef
         workout = await API.createWorkout()
         console.log(workout)
     }
@@ -116,7 +116,6 @@ async function handleFormSubmit(event) {
         workoutData.duration = Number(resistanceDurationInput.value.trim());
     }
 
-    // eslint-disable-next-line no-undef
     await API.addExercise(workoutData);
     clearInputs();
     toast.classList.add('success');

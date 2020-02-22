@@ -1,5 +1,5 @@
+/* eslint-disable no-undef */
 async function initWorkout() {
-    // eslint-disable-next-line no-undef
     const lastWorkout = await API.getLastWorkout();
     console.log('Last workout:', lastWorkout);
     if (lastWorkout) {
