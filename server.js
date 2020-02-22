@@ -18,15 +18,12 @@ app.use(express.static('public'));
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/workout', {
     useNewUrlParser: true,
     useFindAndModify: false
-    // useUnifiedTopology: true 
-    // from google chrome dev tools. need to research what is does/replaces and why
 });
 
 // routes
 const apiRoutes = require('./src/routes/api-routes');
 require('./src/routes/html-routes')(app);
 app.use(apiRoutes);
-// app.use(htmlRoutes);
 
 
 app.listen(PORT, () => {

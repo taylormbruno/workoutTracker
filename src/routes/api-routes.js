@@ -1,10 +1,9 @@
 const router = require('express').Router();
-const Exercise = require('../models/exercise.js');
-// const Workout = require('../models/workout.js');
+const Workout = require('../models/workout.js');
 
 // getLastWorkout // done
 router.get('/api/workouts', (req, res) => {
-    Exercise.find({})
+    Workout.find({})
         .then(dbWorkout => {
             console.log(dbWorkout);
             res.json(dbWorkout);
@@ -18,15 +17,9 @@ router.get('/api/workouts', (req, res) => {
 router.put('/api/workouts/:id', (req, res) => {
     console.log('------Line 20------');
     console.log(req.body);
-    // let exReq = req.body;
-    // let id = req.params.id;
-    // console.log('ID: \n', id);
-    // use , { upsert: true } ??
     if (req.params.id === undefined) {
         console.log(req.body);
-
-        Exercise.create(req.body)
-            // .then(({ _id }) => Workout.findOneAndUpdate({}, { $push: { notes: _id } }, { new: true }))
+        Workout.create(req.body)
             .then(dbUser => {
                 console.log(dbUser);
                 res.json(dbUser);
@@ -37,7 +30,7 @@ router.put('/api/workouts/:id', (req, res) => {
     }
     else {
         console.log(req.body);
-        Exercise.findByIdAndUpdate(req.params.id, {$push: {exercises: req.body }}, {new: true}, function (err, exercise) {
+        Workout.findByIdAndUpdate(req.params.id, {$push: {exercises: req.body }}, {new: true}, function (err, exercise) {
             console.log(exercise);
             res.json(exercise);
             if (err) {
@@ -51,8 +44,8 @@ router.put('/api/workouts/:id', (req, res) => {
 router.post('/api/workouts', ({ body }, res) => {
     console.log('------Line 29------');
     console.log(body);
-    Exercise.create({
-        day: new Date().setDate(new Date().getDate()-10),
+    Workout.create({
+        day: new Date().setDate(new Date().getDate()),
         exercises: []
     })
         .then(newWorkout => {
@@ -69,7 +62,7 @@ router.post('/api/workouts', ({ body }, res) => {
 // getWorkoutsInRange
 router.get('/api/workouts/range', (req, res) => {
     console.log('------Line 41------');
-    Exercise.find({})
+    Workout.find({})
         .then(dbRange => {
             console.log(dbRange);
             res.json(dbRange);
