@@ -15,7 +15,7 @@ Select whether you are adding a Cardio or Resitance exercise.
 
 Fill in the form based off previous selection.
 
-Add to workout if you would like to add another exercise or complete the workout if you would only like to add the one exercise.
+Add to exercise if you would like to add another exercise or complete the workout if you would only like to add the one exercise.
 
 View the dashboard to see stats based off the exercises entered.
 
